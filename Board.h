@@ -2,9 +2,8 @@
 // Created by cheun on 6/15/2020.
 //
 
-#ifndef CHESSGAME_BOARD_H
-#define CHESSGAME_BOARD_H
-
+#ifndef CHESS_BOARD_H
+#define CHESS_BOARD_H
 
 #include "Piece.h"
 
@@ -17,15 +16,21 @@ public:
     ~Board();
     void display();
 
-    void setPieceCoord(Piece* p, int c, int r);
-    int getPieceCoordCol();
-    int getPieceCoordRow();
+    void addPiece(char piece, bool isWhite, int c, int r);
+
+    int pieceRow(Piece* piece);
+    int pieceColumn(Piece* piece);
+    void setPieceRow(Piece* piece, int r);
+    void setPieceColumn(Piece* piece, int c);
+
 
 private:
-    int m_grid[8][8];
-    list<Piece*> whitePieces;
-    list<Piece*> blackPieces;
+    static char startingPos[8][8];
+    Piece* m_grid[8][8];
+    list<Piece*> m_pieces;
+
+
 };
 
 
-#endif //CHESSGAME_BOARD_H
+#endif //CHESS_BOARD_H

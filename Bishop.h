@@ -1,19 +1,20 @@
-////
-//// Created by cheun on 6/15/2020.
-////
 //
-//#ifndef CHESSGAME_BISHOP_H
-//#define CHESSGAME_BISHOP_H
+// Created by cheun on 6/15/2020.
 //
-//
-//#include "Piece.h"
-//
-//class Bishop : public Piece {
-//public:
-//    Bishop();
-//    ~Bishop();
-//    virtual void move();
-//};
-//
-//
-//#endif //CHESSGAME_BISHOP_H
+
+#ifndef CHESS_BISHOP_H
+#define CHESS_BISHOP_H
+
+
+#include "Piece.h"
+
+class Bishop : public Piece {
+public:
+    Bishop(bool isWhite);
+    ~Bishop();
+
+    virtual bool move(int c, int r);
+};
+
+
+#endif //CHESS_BISHOP_H

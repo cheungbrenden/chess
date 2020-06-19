@@ -1,10 +1,17 @@
-////
-//// Created by cheun on 6/15/2020.
-////
 //
-//#include "Bishop.h"
+// Created by cheun on 6/15/2020.
 //
-//void Bishop::move() {
-//
-//}
-//
+
+#include "Bishop.h"
+
+Bishop::Bishop(bool isWhite) : Piece(isWhite) {
+    m_pieceType = 'B';
+}
+
+Bishop::~Bishop() {
+
+}
+
+bool Bishop::move(int c, int r) {
+    return false;
+}

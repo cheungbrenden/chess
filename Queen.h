@@ -2,13 +2,19 @@
 // Created by cheun on 6/15/2020.
 //
 
-#ifndef CHESSGAME_QUEEN_H
-#define CHESSGAME_QUEEN_H
+#ifndef CHESS_QUEEN_H
+#define CHESS_QUEEN_H
 
 
-class Queen {
+#include "Piece.h"
 
+class Queen : public Piece {
+public:
+    Queen(bool isWhite);
+    ~Queen();
+
+    virtual bool move(int c, int r);
 };
 
 
-#endif //CHESSGAME_QUEEN_H
+#endif //CHESS_QUEEN_H

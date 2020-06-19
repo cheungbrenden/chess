@@ -2,14 +2,13 @@
 // Created by cheun on 6/15/2020.
 //
 
-#ifndef CHESSGAME_GAME_H
-#define CHESSGAME_GAME_H
+#ifndef CHESS_GAME_H
+#define CHESS_GAME_H
 
 
 #include "Board.h"
 
 class Game {
-
 public:
     Game();
     ~Game();
@@ -19,4 +18,4 @@ private:
 };
 
 
-#endif //CHESSGAME_GAME_H
+#endif //CHESS_GAME_H

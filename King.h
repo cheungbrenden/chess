@@ -2,15 +2,20 @@
 // Created by cheun on 6/15/2020.
 //
 
-#ifndef CHESSGAME_KING_H
-#define CHESSGAME_KING_H
+#ifndef CHESS_KING_H
+#define CHESS_KING_H
 
 
 #include "Piece.h"
 
 class King : public Piece {
 
+public:
+    King(bool isWhite);
+    virtual bool move(int c, int r);
+private:
+    bool m_hasMoved;
 };
 
 
-#endif //CHESSGAME_KING_H
+#endif //CHESS_KING_H

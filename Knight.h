@@ -2,13 +2,18 @@
 // Created by cheun on 6/15/2020.
 //
 
-#ifndef CHESSGAME_KNIGHT_H
-#define CHESSGAME_KNIGHT_H
+#ifndef CHESS_KNIGHT_H
+#define CHESS_KNIGHT_H
 
 
-class Knight {
+#include "Piece.h"
 
+class Knight : public Piece {
+public:
+    Knight(bool isWhite);
+    ~Knight();
+    virtual bool move(int c, int r);
 };
 
 
-#endif //CHESSGAME_KNIGHT_H
+#endif //CHESS_KNIGHT_H

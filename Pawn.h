@@ -2,13 +2,21 @@
 // Created by cheun on 6/15/2020.
 //
 
-#ifndef CHESSGAME_PAWN_H
-#define CHESSGAME_PAWN_H
+#ifndef CHESS_PAWN_H
+#define CHESS_PAWN_H
 
 
-class Pawn {
+#include "Piece.h"
 
+class Pawn : public Piece {
+
+public:
+    Pawn(bool isWhite);
+    virtual bool move(int column, int row);
+
+private:
+    bool m_hasMoved;
 };
 
 
-#endif //CHESSGAME_PAWN_H
+#endif //CHESS_PAWN_H

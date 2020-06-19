@@ -3,3 +3,15 @@
 //
 
 #include "Knight.h"
+
+Knight::Knight(bool isWhite) : Piece(isWhite) {
+    m_pieceType = 'N';
+}
+
+Knight::~Knight() {
+
+}
+
+bool Knight::move(int c, int r) {
+    return false;
+}

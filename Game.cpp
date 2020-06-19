@@ -50,7 +50,7 @@ void Game::play() {
                 break;
             default:
                 cout << "Invalid move" << endl;
-                cout << "test";
+                cout << "test1";
                 continue;
                 break;
         }

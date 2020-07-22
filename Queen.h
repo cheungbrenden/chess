@@ -10,10 +10,9 @@
 
 class Queen : public Piece {
 public:
-    Queen(bool isWhite);
+    Queen(bool isWhite, int row, int col);
     ~Queen();
 
-    virtual bool move(int c, int r);
 };
 
 

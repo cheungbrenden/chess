@@ -10,9 +10,8 @@
 
 class Knight : public Piece {
 public:
-    Knight(bool isWhite);
+    Knight(bool isWhite, int row, int col);
     ~Knight();
-    virtual bool move(int c, int r);
 };
 
 

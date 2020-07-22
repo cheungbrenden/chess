@@ -4,10 +4,6 @@
 
 #include "King.h"
 
-King::King(bool isWhite) : Piece(isWhite), m_hasMoved(false) {
+King::King(bool isWhite, int row, int col) : Piece(isWhite, row, col, false) {
     m_pieceType = 'K';
-}
-
-bool King::move(int c, int r) {
-    return false;
 }

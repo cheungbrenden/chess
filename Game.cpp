@@ -26,36 +26,45 @@ void Game::play() {
         isWhiteTurn ? cout << "White to move\n" : cout << "Black to move\n";
         cout << "Last move: " << previousMove << endl;
         cin >> userInput;
-        switch (userInput[0]) {
-            case 'K':
-                break;
-            case 'Q':
-                break;
-            case 'B':
-                break;
-            case 'N':
-                break;
-            case 'R':
-                break;
-            case 'O':
-                break;
-            case 'a':
-            case 'b':
-            case 'c':
-            case 'd':
-            case 'e':
-            case 'f':
-            case 'g':
-            case 'h':
-                break;
-            default:
-                cout << "Invalid move" << endl;
-                cout << "test1";
-                continue;
-                break;
-        }
 
+        // Todo: Fix btw
+        isMoveValid(userInput);
+
+
+
+        m_board->playerMove('P', 6, 4, 4, 4, false, isWhiteTurn);
+        // Need to convert user input to specific move
         previousMove = userInput;
         isWhiteTurn = !isWhiteTurn;
+    }
+}
+
+// Todo: use regex to validate string
+bool Game::isMoveValid(string userInput) {
+    switch (userInput[0]) {
+        case 'K':
+            break;
+        case 'Q':
+            break;
+        case 'B':
+            break;
+        case 'N':
+            break;
+        case 'R':
+            break;
+        case 'O':
+            break;
+        case 'a':
+        case 'b':
+        case 'c':
+        case 'd':
+        case 'e':
+        case 'f':
+        case 'g':
+        case 'h':
+            break;
+        default:
+            cout << "Invalid move" << endl;
+            break;
     }
 }

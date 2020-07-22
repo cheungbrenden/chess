@@ -4,7 +4,7 @@
 
 #include "Knight.h"
 
-Knight::Knight(bool isWhite) : Piece(isWhite) {
+Knight::Knight(bool isWhite, int row, int col) : Piece(isWhite, row, col, false) {
     m_pieceType = 'N';
 }
 
@@ -12,6 +12,3 @@ Knight::~Knight() {
 
 }
 
-bool Knight::move(int c, int r) {
-    return false;
-}

@@ -10,8 +10,8 @@
 
 class Rook : public Piece {
 public:
-    Rook(bool isWhite);
-    virtual bool move(int c, int r);
+    Rook(bool isWhite, int row, int col);
+
 private:
     bool m_hasMoved;
 };

@@ -11,11 +11,8 @@
 class Pawn : public Piece {
 
 public:
-    Pawn(bool isWhite);
-    virtual bool move(int column, int row);
+    Pawn(bool isWhite, int row, int col);
 
-private:
-    bool m_hasMoved;
 };
 
 

@@ -7,14 +7,17 @@
 
 
 #include "Board.h"
+#include "string"
 
 class Game {
 public:
     Game();
     ~Game();
     void play();
+    bool isMoveValid(string userInput);
 private:
     Board* m_board;
+
 };
 
 

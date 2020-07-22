@@ -4,10 +4,6 @@
 
 #include "Rook.h"
 
-Rook::Rook(bool isWhite) : Piece(isWhite), m_hasMoved(false) {
+Rook::Rook(bool isWhite, int row, int col) : Piece(isWhite, row, col, false) {
     m_pieceType = 'R';
-}
-
-bool Rook::move(int c, int r) {
-    return false;
 }

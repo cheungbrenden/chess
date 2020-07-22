@@ -11,8 +11,7 @@
 class King : public Piece {
 
 public:
-    King(bool isWhite);
-    virtual bool move(int c, int r);
+    King(bool isWhite, int row, int col);
 private:
     bool m_hasMoved;
 };

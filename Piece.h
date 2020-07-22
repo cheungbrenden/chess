@@ -8,17 +8,22 @@
 
 class Piece {
 public:
-    Piece(bool isWhite);
+    Piece(bool isWhite, int row, int col, bool hasMoved);
     virtual ~Piece();
 
     bool isWhite() const ;
     char pieceType() const;
 
-    virtual bool move(int c, int r) = 0;
+    int row() const;
+    int col() const;
+    bool hasMoved() const;
 
 protected:
     bool m_isWhite;
     char m_pieceType;
+    int m_row;
+    int m_col;
+    bool m_hasMoved;
 };
 
 

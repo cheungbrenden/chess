@@ -4,14 +4,10 @@
 
 #include "Bishop.h"
 
-Bishop::Bishop(bool isWhite) : Piece(isWhite) {
+Bishop::Bishop(bool isWhite, int row, int col) : Piece(isWhite, row, col, false) {
     m_pieceType = 'B';
 }
 
 Bishop::~Bishop() {
 
-}
-
-bool Bishop::move(int c, int r) {
-    return false;
 }

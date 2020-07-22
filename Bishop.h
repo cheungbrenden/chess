@@ -10,10 +10,9 @@
 
 class Bishop : public Piece {
 public:
-    Bishop(bool isWhite);
+    Bishop(bool isWhite, int row, int col);
     ~Bishop();
 
-    virtual bool move(int c, int r);
 };
 
 

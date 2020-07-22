@@ -4,10 +4,6 @@
 
 #include "Pawn.h"
 
-Pawn::Pawn(bool isWhite) : Piece(isWhite), m_hasMoved(false) {
+Pawn::Pawn(bool isWhite, int row, int col) : Piece(isWhite, row, col, false) {
     m_pieceType = 'P';
-}
-
-bool Pawn::move(int column, int row) {
-    return false;
 }

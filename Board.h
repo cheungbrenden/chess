@@ -16,16 +16,20 @@ public:
     ~Board();
     void display();
 
-    void addPiece(char piece, bool isWhite, int c, int r);
+    void addPiece(char piece, bool isWhite, int r, int c);
 
     int pieceRow(Piece* piece);
     int pieceColumn(Piece* piece);
     void setPieceRow(Piece* piece, int r);
     void setPieceColumn(Piece* piece, int c);
 
+    // takes in the starting square and the ending square,
+    void playerMove(char piece, int startRow, int startCol, int endRow, int endCol, bool capture, bool isWhiteTurn);
+
+    bool isValidMove();
 
 private:
-    static char startingPos[8][8];
+    static char startingPos[8][8]; //
     Piece* m_grid[8][8];
     list<Piece*> m_pieces;
 

@@ -4,14 +4,10 @@
 
 #include "Queen.h"
 
-Queen::Queen(bool isWhite) : Piece(isWhite) {
+Queen::Queen(bool isWhite, int row, int col) : Piece(isWhite, row, col, false) {
     m_pieceType = 'Q';
 }
 
 Queen::~Queen() {
 
-}
-
-bool Queen::move(int c, int r) {
-    return false;
 }

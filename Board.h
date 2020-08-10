@@ -8,6 +8,8 @@
 #include "Piece.h"
 
 #include <list>
+#include <string>
+
 using namespace std;
 
 class Board {
@@ -18,16 +20,14 @@ public:
 
     void addPiece(char piece, bool isWhite, int r, int c);
 
-    int pieceRow(Piece* piece);
-    int pieceColumn(Piece* piece);
-    void setPieceRow(Piece* piece, int r);
-    void setPieceColumn(Piece* piece, int c);
-
     // takes in the starting square and the ending square,
-    void playerMove(char piece, int startRow, int startCol, int endRow, int endCol, bool capture, bool isWhiteTurn);
+    bool playerMove(string input, bool isWhiteTurn);
 
-    bool isValidMove();
+    bool isValidMove(string input, bool isWhiteTurn, int& startRow, int& startCol, int& endRow, int& endCol, bool& capture);
 
+    bool isPieceOnSquare(int row, int col);
+
+    bool isOpponentPieceOnSquare(bool isWhite, int row, int col);
 private:
     static char startingPos[8][8]; //
     Piece* m_grid[8][8];

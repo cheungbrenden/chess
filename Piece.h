@@ -5,6 +5,9 @@
 #ifndef CHESS_PIECE_H
 #define CHESS_PIECE_H
 
+#include <string>
+#include <list>
+using namespace std;
 
 class Piece {
 public:
@@ -13,6 +16,7 @@ public:
 
     bool isWhite() const ;
     char pieceType() const;
+    virtual bool isMoveShapeValid(int startRow, int startCol, int endRow, int endCol, bool capture, list<pair<int, int>> &spaces) = 0;
 
     int row() const;
     int col() const;

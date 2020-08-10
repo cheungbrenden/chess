@@ -7,11 +7,13 @@
 
 
 #include "Piece.h"
+#include <list>
 
 class Knight : public Piece {
 public:
     Knight(bool isWhite, int row, int col);
-    ~Knight();
+    virtual bool isMoveShapeValid(int startRow, int startCol, int endRow, int endCol, bool capture, list<pair<int, int>> &spaces);
+
 };
 
 

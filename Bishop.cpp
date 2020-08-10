@@ -11,3 +11,7 @@ Bishop::Bishop(bool isWhite, int row, int col) : Piece(isWhite, row, col, false)
 Bishop::~Bishop() {
 
 }
+
+bool Bishop::isMoveShapeValid(int startRow, int startCol, int endRow, int endCol, bool capture, list<pair<int, int>> &spaces) {
+    return false;
+}

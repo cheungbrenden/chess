@@ -7,12 +7,14 @@
 
 
 #include "Piece.h"
+#include <list>
+
 
 class Pawn : public Piece {
 
 public:
     Pawn(bool isWhite, int row, int col);
-
+    virtual bool isMoveShapeValid(int startRow, int startCol, int endRow, int endCol, bool capture, list<pair<int, int>> &spaces);
 };
 
 

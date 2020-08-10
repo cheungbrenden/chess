@@ -7,11 +7,14 @@
 
 
 #include "Piece.h"
+#include <list>
 
 class Queen : public Piece {
 public:
     Queen(bool isWhite, int row, int col);
     ~Queen();
+
+    bool isMoveShapeValid(int startRow, int startCol, int endRow, int endCol, bool capture, list<pair<int, int>> &spaces);
 
 };
 

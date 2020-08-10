@@ -7,11 +7,12 @@
 
 
 #include "Piece.h"
+#include <list>
 
 class Rook : public Piece {
 public:
     Rook(bool isWhite, int row, int col);
-
+    bool isMoveShapeValid(int startRow, int startCol, int endRow, int endCol, bool capture, list<pair<int, int>> &spaces);
 private:
     bool m_hasMoved;
 };

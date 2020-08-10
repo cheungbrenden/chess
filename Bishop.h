@@ -7,11 +7,14 @@
 
 
 #include "Piece.h"
+#include <list>
 
 class Bishop : public Piece {
 public:
     Bishop(bool isWhite, int row, int col);
     ~Bishop();
+
+    bool isMoveShapeValid(int startRow, int startCol, int endRow, int endCol, bool capture, list<pair<int, int>> &spaces);
 
 };
 

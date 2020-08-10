@@ -12,7 +12,7 @@ Piece::~Piece() {
 
 }
 
-bool Piece::isWhite() const{
+bool Piece::isWhite() const {
     return m_isWhite;
 }
 

@@ -7,12 +7,14 @@
 #include "Knight.h"
 #include "Bishop.h"
 #include "Queen.h"
-#include "King.h"
 #include "Pawn.h"
+#include "King.h"
 
 
 #include <iostream>
 #include <list>
+#include <regex>
+
 using namespace std;
 
 Board::Board() {
@@ -53,8 +55,7 @@ void Board::display() {
                     cout << "b";
                 }
                 cout << m_grid[i][j]->pieceType();
-            }
-            else {
+            } else {
                 cout << "  ";
             }
         }
@@ -94,39 +95,84 @@ void Board::addPiece(char piece, bool isWhite, int r, int c) {
 }
 
 char Board::startingPos[8][8] = { // grid of characters showing the starting position of the board
-        {'R', 'N', 'B', 'K', 'Q', 'B', 'N', 'R'},
+        {'R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R'},
         {'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'},
         {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
         {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
         {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
         {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
         {'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'},
-        {'R', 'N', 'B', 'K', 'Q', 'B', 'N', 'R'}
+        {'R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R'}
 };
 
-int Board::pieceRow(Piece *piece) {
-    return 0;
-}
-
-int Board::pieceColumn(Piece *piece) {
-    return 0;
-}
-
-void Board::setPieceRow(Piece *piece, int r) {
-
-}
-
-void Board::setPieceColumn(Piece *piece, int c) {
-
-}
-
-void Board::playerMove(char piece, int startRow, int startCol, int endRow, int endCol, bool capture, bool isWhiteTurn) {
-
-}
-
-bool Board::isValidMove() {
+bool Board::playerMove(string input, bool isWhiteTurn) {
+    int startRow, startCol, endRow, endCol;
+    bool capture;
+    if (isValidMove(input, isWhiteTurn, startRow, startCol, endRow, endCol, capture)) {
+        Piece *selectedPiece = m_grid[startRow][startCol];
+        m_grid[startRow][startCol] = nullptr;
+        m_grid[endRow][endCol] = selectedPiece;
+        return true;
+    }
     return false;
 }
 
+// Todo: use regex to validate string, we assume first that all moves inputted are legal moves
+bool Board::isValidMove(string input, bool isWhiteTurn, int& startRow, int& startCol, int& endRow, int& endCol, bool& capture) {
+    regex e("^([KQRBN]?)([a-h][1-8])([-x])([a-h][1-8])$");
+    smatch m;
+    if (regex_search(input, m, e) ) {
+        string startSpace = m.str(2);
+        startRow = 56 - (int) startSpace[1];
+        startCol = (int) startSpace[0] - 97;
+        string endSpace = m.str(4);
+        endRow = 56 - (int) endSpace[1];
+        endCol = (int) endSpace[0] - 97;
+        capture = m.str(3)[0] == 'x';
+        if (m_grid[startRow][startCol] == nullptr) {
+            cout << "No piece there." << endl;
+            return false;
+        }
+        Piece *pieceOnStartSpace = m_grid[startRow][startCol];
+        if (pieceOnStartSpace->isWhite() != isWhiteTurn) {
+            cout << "You picked up your opponent's piece. Try again." << endl;
+            return false;
+        }
+        list<pair<int, int>> spacesToMove;
+        if (!pieceOnStartSpace->isMoveShapeValid(startRow, startCol, endRow, endCol, capture, spacesToMove)) {
+            cout << "Your piece cannot move like that." << endl;
+            return false;
+        }
+        if (capture) {
+            if (!isOpponentPieceOnSquare(isWhiteTurn, endRow, endCol)) {
+                cout << "No piece to capture." << endl;
+                return false;
+            }
+        }
+        else {
+            if (isPieceOnSquare(endRow, endCol)) {
+                cout << "A piece occupies the square you want to move to." << endl;
+                return false;
+            }
+        }
+        return true;
+    }
+    else {
+        cout << "Not a valid move" << endl;
+        return false;
 
+    }
+}
+
+bool Board::isPieceOnSquare(int row, int col) {
+    return m_grid[row][col] != nullptr;
+}
+
+bool Board::isOpponentPieceOnSquare(bool isWhite, int row, int col) {
+    if (m_grid[row][col] == nullptr) {
+        cout << "ERROR, YOU SHOULDN'T HAVE TO CHECK THIS WHEN THERE'S NO PIECE HERE" << endl;
+        return false;
+    }
+    return (isWhite && !m_grid[row][col]->isWhite()) || (!isWhite && m_grid[row][col]->isWhite());
+}
 

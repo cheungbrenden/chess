@@ -21,6 +21,7 @@ public:
     int row() const;
     int col() const;
     bool hasMoved() const;
+    bool onBoard(int row, int col) const;
 
 protected:
     bool m_isWhite;

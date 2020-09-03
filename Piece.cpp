@@ -32,3 +32,6 @@ bool Piece::hasMoved() const {
     return m_hasMoved;
 }
 
+bool Piece::onBoard(int row, int col) const {
+    return row >= 0 && row <= 7 && col >= 0 && col <= 7;
+}

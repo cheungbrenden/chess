@@ -158,7 +158,7 @@ bool Board::isValidMove(string input, bool isWhiteTurn, int& startRow, int& star
         return true;
     }
     else {
-        cout << "Not a valid move" << endl;
+        cout << "Not a valid move. Enter ? for a set of instructions on how to move." << endl;
         return false;
 
     }
